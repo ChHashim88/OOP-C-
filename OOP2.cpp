@@ -7,15 +7,25 @@ struct student{
     int rollno;
 };
 
+struct teacher{
+    string name;
+    int idd;
+};
+
+struct Node{
+   int value;
+   Node *next;
+};
+
 int main(){
      int heighest=0;
      string Sname;
 
     //Cin , Cout
-     int val;
-     cout<<"Enter Value"<<endl;
-     cin>>val;
-     cout<<"Entered value is = "<<val<<endl;
+   //   int val;
+   //   cout<<"Enter Value"<<endl;
+   //   cin>>val;
+   //   cout<<"Entered value is = "<<val<<endl;
     
      //Intiger array
      int array[5]={12,25,24,36,4};
@@ -89,7 +99,63 @@ int main(){
      for(int i=0;i<3;i++){
         cout<<n[i].name<<" Have the "<<n[i].rollno<<" .  ";
      }
-    return 0;
+     cout<<endl;
 
+     //Pointers
+     int x=25;
+     cout<<"Adress of  operand = "<<&x<<"and value ="<< x <<endl;
+     int *p=&x;
+     cout<<"Now p contain the adress = "<< p <<" and * is pointing to the value at p adress="<< *p <<endl;
+     
+     for(int i=0;i<3;i++){
+        cout<<p<<" ";
+        p=p+1;
+     }
+     cout<<endl;
+
+     //Pointer iterating array or Arithmetic pointer
+     int arrp[]={1,2,3,4,5};
+     int *ptr=arrp;
+
+     for(int i=0;i<5;i++){
+        cout<<*ptr<<"  value is at adress  "<<ptr<<endl;
+        ptr=ptr+1;
+     }
+     cout<<endl;
+
+     //pointer use in struct
+   //   teacher t1;
+
+   //   t1.name = "Faisal";
+   //   t1.idd = 23458;
+
+   //   teacher *t = &t1;
+
+   //   cout << t->name << endl;
+   //   cout<< t->idd <<endl; 
+   
+    Node n1,n2,n3;
+
+    n1.value=10;
+    n2.value=20;
+    n3.value=30;
+
+    n1.next=&n2;
+    n2.next=&n3;
+    n3.next=nullptr;
+
+    Node *temp = &n1;
+
+    while(temp != nullptr){
+      cout << (*temp).value << endl;
+      temp = (*temp).next;
+    }
+
+   
+    
+      
+     
+
+    return 0;
 }
 
